@@ -2,6 +2,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 import time 
+import customChrome
 
 class testLogin:
     def __init__(self, username, password):
@@ -9,7 +10,7 @@ class testLogin:
         self.password = password
 
     def runTest(self):
-        drive = webdriver.Chrome()
+        drive = customChrome.chrome_setup()
         drive.get("https://cms.anhtester.com/login")
 
         if self.username == "":
