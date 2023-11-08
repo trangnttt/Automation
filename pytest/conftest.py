@@ -31,9 +31,9 @@ def pytest_html_report_title(report):
 
 @pytest.fixture(scope="session", autouse=True)
 def browser():
-   global driver
-   if driver is None:
+   # global driver
+   # if driver is None:
       option = webdriver.ChromeOptions()
       option.add_argument("start-maximized")
       driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()),options=option)
-      return driver
+      # return driver
