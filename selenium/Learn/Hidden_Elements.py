@@ -5,7 +5,7 @@ import time
 
 class Hidden_Elements:
     def locate(self):
-        drive = webdriver.Chrome(ChromeDriverManager().install())
+        drive = webdriver.Chrome()
         drive.get("https://www.yatra.com/hotels")
         drive.maximize_window()
         drive.find_element(By.ID, "BE_Hotel_pax_info").click()
