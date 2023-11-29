@@ -3,10 +3,7 @@ Library    SeleniumLibrary
 Variables    ../Variables/Variables_WebElemt.py
 Resource    ../Resource/validation_Login.robot
 
-Test Setup    Open Browser    https://www.saucedemo.com/    chrome
-Test Teardown    Close Browser
-
-*** Test Cases ***
+*** Keywords ***
 Test Case Login
     validation_Login.Test Case Login with username is null and password valid
     validation_Login.Test Case Login with username is valid and password null
