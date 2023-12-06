@@ -1,14 +1,14 @@
 ==============================================================================
 TestSuites                                                                    
 ==============================================================================
-TestSuites.Suite Login Header                                                 
+TestSuites.TS02 Header TopMen                                                 
 ==============================================================================
-Test Case Login and Header                                            | PASS |
+Test Suite Login                                                      | PASS |
 ------------------------------------------------------------------------------
-TestSuites.Suite Login Header                                         | PASS |
+TestSuites.TS02 Header TopMen                                         | PASS |
 1 test, 1 passed, 0 failed
 ==============================================================================
 TestSuites                                                            | PASS |
 1 test, 1 passed, 0 failed
 ==============================================================================
-Output:  /Users/trangntt/Documents/WorkPlace/Automation/robotframework/Project/Swag-Labs-Project/Reports/pabot_results/0/output.xml
+Output:  /Users/trangntt/Documents/WorkPlace/Automation/robotframework/Project/Open-Cart/Reports/pabot_results/1/output.xml

@@ -1,0 +1,846 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.11.3 on darwin)" generated="20231206 09:56:25.284" rpa="false" schemaversion="4">
+<suite id="s1" name="TestSuites" source="/Users/trangntt/Documents/WorkPlace/Automation/robotframework/Project/Open-Cart/TestSuites">
+<suite id="s1-s1" name="TS02 Header TopMen" source="/Users/trangntt/Documents/WorkPlace/Automation/robotframework/Project/Open-Cart/TestSuites/TS02_Header_TopMen.robot">
+<test id="s1-s1-t1" name="Test Suite Login" line="12">
+<kw name="Start TestCase" library="CommonFunctionality" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20231206 09:56:25.365" level="INFO">Opening browser 'chrome' to base url 'https://opencart.abstracta.us/'.</msg>
+<status status="PASS" starttime="20231206 09:56:25.365" endtime="20231206 09:56:31.343"/>
+</kw>
+<status status="PASS" starttime="20231206 09:56:25.365" endtime="20231206 09:56:31.343"/>
+</kw>
+<kw name="Test Case Top Menu" library="TC02_TopMenu">
+<kw name="Test Case left of Top Menu" library="TC02_TopMenu">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${btn_Currency}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20231206 09:56:31.348" level="INFO">Clicking button 'xpath://div[@class='pull-left']//button[@class='btn btn-link dropdown-toggle']'.</msg>
+<status status="PASS" starttime="20231206 09:56:31.346" endtime="20231206 09:56:31.401"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231206 09:56:33.404" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20231206 09:56:31.401" endtime="20231206 09:56:33.404"/>
+</kw>
+<kw name="Check display data Currency" library="validation_TopMenu">
+<kw name="Create List" library="BuiltIn">
+<var>${dataCurrency}</var>
+<arg>€ Euro</arg>
+<arg>£ Pound Sterling</arg>
+<arg>$ US Dollar</arg>
+<doc>Returns a list containing given items.</doc>
+<msg timestamp="20231206 09:56:33.408" level="INFO">${dataCurrency} = ['€ Euro', '£ Pound Sterling', '$ US Dollar']</msg>
+<status status="PASS" starttime="20231206 09:56:33.407" endtime="20231206 09:56:33.408"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${countCurrency}</var>
+<arg>${elm_countCurrency}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20231206 09:56:33.430" level="INFO">${countCurrency} = 3</msg>
+<status status="PASS" starttime="20231206 09:56:33.408" endtime="20231206 09:56:33.430"/>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<var>${listCurrency}</var>
+<doc>Returns a list containing given items.</doc>
+<msg timestamp="20231206 09:56:33.431" level="INFO">${listCurrency} = []</msg>
+<status status="PASS" starttime="20231206 09:56:33.430" endtime="20231206 09:56:33.431"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${i}</var>
+<value>1</value>
+<value>${countCurrency}+1</value>
+<iter>
+<var name="${i}">1</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text}</var>
+<arg>//div[@class='pull-left']//ul[@class='dropdown-menu']//li[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20231206 09:56:33.459" level="INFO">${text} = € Euro</msg>
+<status status="PASS" starttime="20231206 09:56:33.432" endtime="20231206 09:56:33.459"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${listCurrency}</arg>
+<arg>${text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20231206 09:56:33.459" endtime="20231206 09:56:33.459"/>
+</kw>
+<status status="PASS" starttime="20231206 09:56:33.431" endtime="20231206 09:56:33.459"/>
+</iter>
+<iter>
+<var name="${i}">2</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text}</var>
+<arg>//div[@class='pull-left']//ul[@class='dropdown-menu']//li[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20231206 09:56:33.474" level="INFO">${text} = £ Pound Sterling</msg>
+<status status="PASS" starttime="20231206 09:56:33.460" endtime="20231206 09:56:33.474"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${listCurrency}</arg>
+<arg>${text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20231206 09:56:33.474" endtime="20231206 09:56:33.474"/>
+</kw>
+<status status="PASS" starttime="20231206 09:56:33.459" endtime="20231206 09:56:33.474"/>
+</iter>
+<iter>
+<var name="${i}">3</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text}</var>
+<arg>//div[@class='pull-left']//ul[@class='dropdown-menu']//li[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20231206 09:56:33.485" level="INFO">${text} = $ US Dollar</msg>
+<status status="PASS" starttime="20231206 09:56:33.474" endtime="20231206 09:56:33.485"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${listCurrency}</arg>
+<arg>${text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20231206 09:56:33.486" endtime="20231206 09:56:33.486"/>
+</kw>
+<status status="PASS" starttime="20231206 09:56:33.474" endtime="20231206 09:56:33.486"/>
+</iter>
+<status status="PASS" starttime="20231206 09:56:33.431" endtime="20231206 09:56:33.486"/>
+</for>
+<kw name="Lists Should Be Equal" library="Collections">
+<arg>${listCurrency}</arg>
+<arg>${dataCurrency}</arg>
+<arg>-----Currency pass data-----</arg>
+<doc>Fails if given lists are unequal.</doc>
+<status status="PASS" starttime="20231206 09:56:33.486" endtime="20231206 09:56:33.486"/>
+</kw>
+<status status="PASS" starttime="20231206 09:56:33.405" endtime="20231206 09:56:33.486"/>
+</kw>
+<kw name="Click item Currency" library="validation_TopMenu">
+<kw name="Mouse Down" library="SeleniumLibrary">
+<arg>${elm_chosseCurrency}</arg>
+<doc>Simulates pressing the left mouse button on the element ``locator``.</doc>
+<msg timestamp="20231206 09:56:33.487" level="INFO">Simulating Mouse Down on element 'xpath://div[@class='pull-left']//ul[@class='dropdown-menu']//li[2]'.</msg>
+<status status="PASS" starttime="20231206 09:56:33.486" endtime="20231206 09:56:33.765"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${elm_chosseCurrency}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231206 09:56:33.766" level="INFO">Clicking element 'xpath://div[@class='pull-left']//ul[@class='dropdown-menu']//li[2]'.</msg>
+<status status="PASS" starttime="20231206 09:56:33.765" endtime="20231206 09:56:40.692"/>
+</kw>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>${elm_btnCurrency}</arg>
+<arg>£</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20231206 09:56:40.693" level="INFO">Verifying element 'xpath://div[@class='pull-left']//button[@class='btn btn-link dropdown-toggle']//strong' contains exact text '£'.</msg>
+<status status="PASS" starttime="20231206 09:56:40.692" endtime="20231206 09:56:40.710"/>
+</kw>
+<status status="PASS" starttime="20231206 09:56:33.486" endtime="20231206 09:56:40.710"/>
+</kw>
+<status status="PASS" starttime="20231206 09:56:31.346" endtime="20231206 09:56:40.710"/>
+</kw>
+<kw name="Test Case right of Top Menu" library="TC02_TopMenu">
+<kw name="Check Icon Text and Link Menu of Top Menu" library="validation_TopMenu">
+<kw name="Create List" library="BuiltIn">
+<var>${item_topMenu}</var>
+<arg>123456789</arg>
+<arg>My Account</arg>
+<arg>Wish List (0)</arg>
+<arg>Shopping Cart</arg>
+<arg>Checkout</arg>
+<doc>Returns a list containing given items.</doc>
+<msg timestamp="20231206 09:56:40.711" level="INFO">${item_topMenu} = ['123456789', 'My Account', 'Wish List (0)', 'Shopping Cart', 'Checkout']</msg>
+<status status="PASS" starttime="20231206 09:56:40.711" endtime="20231206 09:56:40.711"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${count_item_topMenuRight}</var>
+<arg>${elm_countMenuTop}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20231206 09:56:40.718" level="INFO">${count_item_topMenuRight} = 5</msg>
+<status status="PASS" starttime="20231206 09:56:40.711" endtime="20231206 09:56:40.718"/>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<var>${listIcon_TopMenuRight}</var>
+<doc>Returns a list containing given items.</doc>
+<msg timestamp="20231206 09:56:40.718" level="INFO">${listIcon_TopMenuRight} = []</msg>
+<status status="PASS" starttime="20231206 09:56:40.718" endtime="20231206 09:56:40.718"/>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<var>${listText_TopMenuRight}</var>
+<doc>Returns a list containing given items.</doc>
+<msg timestamp="20231206 09:56:40.719" level="INFO">${listText_TopMenuRight} = []</msg>
+<status status="PASS" starttime="20231206 09:56:40.718" endtime="20231206 09:56:40.719"/>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<var>${listLink_TopMenuRight}</var>
+<doc>Returns a list containing given items.</doc>
+<msg timestamp="20231206 09:56:40.719" level="INFO">${listLink_TopMenuRight} = []</msg>
+<status status="PASS" starttime="20231206 09:56:40.719" endtime="20231206 09:56:40.719"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${i}</var>
+<value>1</value>
+<value>${count_item_topMenuRight}+1</value>
+<iter>
+<var name="${i}">1</var>
+<kw name="Get Element Attribute" library="SeleniumLibrary">
+<var>${icon-menu}</var>
+<arg>xpath=//div[@id='top-links']//ul[@class='list-inline']/li[${i}]//i</arg>
+<arg>class</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20231206 09:56:40.733" level="INFO">${icon-menu} = fa fa-phone</msg>
+<status status="PASS" starttime="20231206 09:56:40.719" endtime="20231206 09:56:40.733"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${listIcon_TopMenuRight}</arg>
+<arg>${icon-menu}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20231206 09:56:40.733" endtime="20231206 09:56:40.733"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text}</var>
+<arg>//div[@id='top-links']//ul[@class='list-inline']/li[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20231206 09:56:40.744" level="INFO">${text} = 123456789</msg>
+<status status="PASS" starttime="20231206 09:56:40.733" endtime="20231206 09:56:40.744"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${listText_TopMenuRight}</arg>
+<arg>${text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20231206 09:56:40.744" endtime="20231206 09:56:40.744"/>
+</kw>
+<kw name="Get Element Attribute" library="SeleniumLibrary">
+<var>${link_url}</var>
+<arg>xpath=//div[@id='top-links']//ul[@class='list-inline']/li[${i}]/a</arg>
+<arg>href</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20231206 09:56:40.755" level="INFO">${link_url} = http://opencart.abstracta.us/index.php?route=information/contact</msg>
+<status status="PASS" starttime="20231206 09:56:40.744" endtime="20231206 09:56:40.755"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${listLink_TopMenuRight}</arg>
+<arg>${link_url}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20231206 09:56:40.755" endtime="20231206 09:56:40.755"/>
+</kw>
+<status status="PASS" starttime="20231206 09:56:40.719" endtime="20231206 09:56:40.755"/>
+</iter>
+<iter>
+<var name="${i}">2</var>
+<kw name="Get Element Attribute" library="SeleniumLibrary">
+<var>${icon-menu}</var>
+<arg>xpath=//div[@id='top-links']//ul[@class='list-inline']/li[${i}]//i</arg>
+<arg>class</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20231206 09:56:40.764" level="INFO">${icon-menu} = fa fa-user</msg>
+<status status="PASS" starttime="20231206 09:56:40.755" endtime="20231206 09:56:40.765"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${listIcon_TopMenuRight}</arg>
+<arg>${icon-menu}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20231206 09:56:40.765" endtime="20231206 09:56:40.765"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text}</var>
+<arg>//div[@id='top-links']//ul[@class='list-inline']/li[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20231206 09:56:40.774" level="INFO">${text} = My Account</msg>
+<status status="PASS" starttime="20231206 09:56:40.765" endtime="20231206 09:56:40.774"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${listText_TopMenuRight}</arg>
+<arg>${text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20231206 09:56:40.774" endtime="20231206 09:56:40.774"/>
+</kw>
+<kw name="Get Element Attribute" library="SeleniumLibrary">
+<var>${link_url}</var>
+<arg>xpath=//div[@id='top-links']//ul[@class='list-inline']/li[${i}]/a</arg>
+<arg>href</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20231206 09:56:40.789" level="INFO">${link_url} = https://opencart.abstracta.us/index.php?route=account/account</msg>
+<status status="PASS" starttime="20231206 09:56:40.774" endtime="20231206 09:56:40.789"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${listLink_TopMenuRight}</arg>
+<arg>${link_url}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20231206 09:56:40.790" endtime="20231206 09:56:40.790"/>
+</kw>
+<status status="PASS" starttime="20231206 09:56:40.755" endtime="20231206 09:56:40.790"/>
+</iter>
+<iter>
+<var name="${i}">3</var>
+<kw name="Get Element Attribute" library="SeleniumLibrary">
+<var>${icon-menu}</var>
+<arg>xpath=//div[@id='top-links']//ul[@class='list-inline']/li[${i}]//i</arg>
+<arg>class</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20231206 09:56:40.811" level="INFO">${icon-menu} = fa fa-heart</msg>
+<status status="PASS" starttime="20231206 09:56:40.791" endtime="20231206 09:56:40.811"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${listIcon_TopMenuRight}</arg>
+<arg>${icon-menu}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20231206 09:56:40.811" endtime="20231206 09:56:40.811"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text}</var>
+<arg>//div[@id='top-links']//ul[@class='list-inline']/li[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20231206 09:56:40.825" level="INFO">${text} = Wish List (0)</msg>
+<status status="PASS" starttime="20231206 09:56:40.811" endtime="20231206 09:56:40.825"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${listText_TopMenuRight}</arg>
+<arg>${text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20231206 09:56:40.825" endtime="20231206 09:56:40.826"/>
+</kw>
+<kw name="Get Element Attribute" library="SeleniumLibrary">
+<var>${link_url}</var>
+<arg>xpath=//div[@id='top-links']//ul[@class='list-inline']/li[${i}]/a</arg>
+<arg>href</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20231206 09:56:40.839" level="INFO">${link_url} = https://opencart.abstracta.us/index.php?route=account/wishlist</msg>
+<status status="PASS" starttime="20231206 09:56:40.826" endtime="20231206 09:56:40.839"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${listLink_TopMenuRight}</arg>
+<arg>${link_url}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20231206 09:56:40.839" endtime="20231206 09:56:40.839"/>
+</kw>
+<status status="PASS" starttime="20231206 09:56:40.790" endtime="20231206 09:56:40.839"/>
+</iter>
+<iter>
+<var name="${i}">4</var>
+<kw name="Get Element Attribute" library="SeleniumLibrary">
+<var>${icon-menu}</var>
+<arg>xpath=//div[@id='top-links']//ul[@class='list-inline']/li[${i}]//i</arg>
+<arg>class</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20231206 09:56:40.850" level="INFO">${icon-menu} = fa fa-shopping-cart</msg>
+<status status="PASS" starttime="20231206 09:56:40.839" endtime="20231206 09:56:40.850"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${listIcon_TopMenuRight}</arg>
+<arg>${icon-menu}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20231206 09:56:40.851" endtime="20231206 09:56:40.851"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text}</var>
+<arg>//div[@id='top-links']//ul[@class='list-inline']/li[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20231206 09:56:40.860" level="INFO">${text} = Shopping Cart</msg>
+<status status="PASS" starttime="20231206 09:56:40.851" endtime="20231206 09:56:40.860"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${listText_TopMenuRight}</arg>
+<arg>${text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20231206 09:56:40.860" endtime="20231206 09:56:40.861"/>
+</kw>
+<kw name="Get Element Attribute" library="SeleniumLibrary">
+<var>${link_url}</var>
+<arg>xpath=//div[@id='top-links']//ul[@class='list-inline']/li[${i}]/a</arg>
+<arg>href</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20231206 09:56:40.871" level="INFO">${link_url} = http://opencart.abstracta.us/index.php?route=checkout/cart</msg>
+<status status="PASS" starttime="20231206 09:56:40.861" endtime="20231206 09:56:40.871"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${listLink_TopMenuRight}</arg>
+<arg>${link_url}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20231206 09:56:40.871" endtime="20231206 09:56:40.871"/>
+</kw>
+<status status="PASS" starttime="20231206 09:56:40.839" endtime="20231206 09:56:40.871"/>
+</iter>
+<iter>
+<var name="${i}">5</var>
+<kw name="Get Element Attribute" library="SeleniumLibrary">
+<var>${icon-menu}</var>
+<arg>xpath=//div[@id='top-links']//ul[@class='list-inline']/li[${i}]//i</arg>
+<arg>class</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20231206 09:56:40.880" level="INFO">${icon-menu} = fa fa-share</msg>
+<status status="PASS" starttime="20231206 09:56:40.872" endtime="20231206 09:56:40.880"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${listIcon_TopMenuRight}</arg>
+<arg>${icon-menu}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20231206 09:56:40.880" endtime="20231206 09:56:40.881"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text}</var>
+<arg>//div[@id='top-links']//ul[@class='list-inline']/li[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20231206 09:56:40.890" level="INFO">${text} = Checkout</msg>
+<status status="PASS" starttime="20231206 09:56:40.881" endtime="20231206 09:56:40.890"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${listText_TopMenuRight}</arg>
+<arg>${text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20231206 09:56:40.890" endtime="20231206 09:56:40.890"/>
+</kw>
+<kw name="Get Element Attribute" library="SeleniumLibrary">
+<var>${link_url}</var>
+<arg>xpath=//div[@id='top-links']//ul[@class='list-inline']/li[${i}]/a</arg>
+<arg>href</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20231206 09:56:40.898" level="INFO">${link_url} = https://opencart.abstracta.us/index.php?route=checkout/checkout</msg>
+<status status="PASS" starttime="20231206 09:56:40.890" endtime="20231206 09:56:40.898"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${listLink_TopMenuRight}</arg>
+<arg>${link_url}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20231206 09:56:40.899" endtime="20231206 09:56:40.899"/>
+</kw>
+<status status="PASS" starttime="20231206 09:56:40.871" endtime="20231206 09:56:40.899"/>
+</iter>
+<status status="PASS" starttime="20231206 09:56:40.719" endtime="20231206 09:56:40.899"/>
+</for>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${listIcon_TopMenuRight}</arg>
+<arg>${icon_TopMenu}</arg>
+<arg>-----Icons pass data-----</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20231206 09:56:40.899" endtime="20231206 09:56:40.899"/>
+</kw>
+<kw name="Lists Should Be Equal" library="Collections">
+<arg>${listText_TopMenuRight}</arg>
+<arg>${item_topMenu}</arg>
+<arg>-----Texts pass data-----</arg>
+<doc>Fails if given lists are unequal.</doc>
+<status status="PASS" starttime="20231206 09:56:40.899" endtime="20231206 09:56:40.899"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${listLink_TopMenuRight}</arg>
+<arg>${data_linkTopMenu}</arg>
+<arg>-----Links pass data-----</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20231206 09:56:40.899" endtime="20231206 09:56:40.899"/>
+</kw>
+<status status="PASS" starttime="20231206 09:56:40.711" endtime="20231206 09:56:40.899"/>
+</kw>
+<kw name="Check sub menu of Top Menu" library="validation_TopMenu">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${elmt_SubMenuTop}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231206 09:56:40.900" level="INFO">Clicking element 'xpath://div[@id='top-links']//ul[@class='list-inline']/li[2]'.</msg>
+<status status="PASS" starttime="20231206 09:56:40.900" endtime="20231206 09:56:40.930"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${count_submenu_TopMenu}</var>
+<arg>${elmt_countSubMenuTop}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20231206 09:56:40.936" level="INFO">${count_submenu_TopMenu} = 2</msg>
+<status status="PASS" starttime="20231206 09:56:40.930" endtime="20231206 09:56:40.936"/>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<var>${listTextSubMenu_TopMenuRight}</var>
+<doc>Returns a list containing given items.</doc>
+<msg timestamp="20231206 09:56:40.936" level="INFO">${listTextSubMenu_TopMenuRight} = []</msg>
+<status status="PASS" starttime="20231206 09:56:40.936" endtime="20231206 09:56:40.936"/>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<var>${listLinkSubMenu_TopMenuRight}</var>
+<doc>Returns a list containing given items.</doc>
+<msg timestamp="20231206 09:56:40.936" level="INFO">${listLinkSubMenu_TopMenuRight} = []</msg>
+<status status="PASS" starttime="20231206 09:56:40.936" endtime="20231206 09:56:40.936"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${i}</var>
+<value>1</value>
+<value>${count_submenu_TopMenu}+1</value>
+<iter>
+<var name="${i}">1</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text}</var>
+<arg>//div[@id='top-links']//ul[@class='list-inline']/li[2]//li[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20231206 09:56:40.945" level="INFO">${text} = Register</msg>
+<status status="PASS" starttime="20231206 09:56:40.937" endtime="20231206 09:56:40.945"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${listTextSubMenu_TopMenuRight}</arg>
+<arg>${text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20231206 09:56:40.946" endtime="20231206 09:56:40.946"/>
+</kw>
+<kw name="Get Element Attribute" library="SeleniumLibrary">
+<var>${link_url}</var>
+<arg>xpath=//div[@id='top-links']//ul[@class='list-inline']/li[2]//li[${i}]/a</arg>
+<arg>href</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20231206 09:56:40.955" level="INFO">${link_url} = https://opencart.abstracta.us/index.php?route=account/register</msg>
+<status status="PASS" starttime="20231206 09:56:40.946" endtime="20231206 09:56:40.955"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${listLinkSubMenu_TopMenuRight}</arg>
+<arg>${link_url}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20231206 09:56:40.955" endtime="20231206 09:56:40.955"/>
+</kw>
+<status status="PASS" starttime="20231206 09:56:40.936" endtime="20231206 09:56:40.955"/>
+</iter>
+<iter>
+<var name="${i}">2</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text}</var>
+<arg>//div[@id='top-links']//ul[@class='list-inline']/li[2]//li[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20231206 09:56:40.964" level="INFO">${text} = Login</msg>
+<status status="PASS" starttime="20231206 09:56:40.955" endtime="20231206 09:56:40.964"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${listTextSubMenu_TopMenuRight}</arg>
+<arg>${text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20231206 09:56:40.964" endtime="20231206 09:56:40.965"/>
+</kw>
+<kw name="Get Element Attribute" library="SeleniumLibrary">
+<var>${link_url}</var>
+<arg>xpath=//div[@id='top-links']//ul[@class='list-inline']/li[2]//li[${i}]/a</arg>
+<arg>href</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20231206 09:56:40.974" level="INFO">${link_url} = https://opencart.abstracta.us/index.php?route=account/login</msg>
+<status status="PASS" starttime="20231206 09:56:40.965" endtime="20231206 09:56:40.974"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${listLinkSubMenu_TopMenuRight}</arg>
+<arg>${link_url}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20231206 09:56:40.974" endtime="20231206 09:56:40.974"/>
+</kw>
+<status status="PASS" starttime="20231206 09:56:40.955" endtime="20231206 09:56:40.974"/>
+</iter>
+<status status="PASS" starttime="20231206 09:56:40.936" endtime="20231206 09:56:40.974"/>
+</for>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${listTextSubMenu_TopMenuRight}</arg>
+<arg>${text_subMenu_TopMenu}</arg>
+<arg>-----Text Sub menu of Top Menu pass data-----</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20231206 09:56:40.974" endtime="20231206 09:56:40.974"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${listLinkSubMenu_TopMenuRight}</arg>
+<arg>${link_subMenu_TopMenu}</arg>
+<arg>-----Link Sub menu of Top Menu pass data-----</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20231206 09:56:40.974" endtime="20231206 09:56:40.974"/>
+</kw>
+<kw name="Reload Page" library="SeleniumLibrary">
+<doc>Simulates user reloading page.</doc>
+<status status="PASS" starttime="20231206 09:56:40.974" endtime="20231206 09:56:41.273"/>
+</kw>
+<status status="PASS" starttime="20231206 09:56:40.900" endtime="20231206 09:56:41.273"/>
+</kw>
+<status status="PASS" starttime="20231206 09:56:40.710" endtime="20231206 09:56:41.273"/>
+</kw>
+<status status="PASS" starttime="20231206 09:56:31.344" endtime="20231206 09:56:41.273"/>
+</kw>
+<kw name="Test Case Header" library="TC03_Header">
+<kw name="Check logo" library="TC03_Header">
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<arg>${Logo}</arg>
+<arg>Your Store</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20231206 09:56:41.285" level="INFO">Element 'id:logo' contains text 'Your Store'.</msg>
+<status status="PASS" starttime="20231206 09:56:41.274" endtime="20231206 09:56:41.285"/>
+</kw>
+<kw name="Element Attribute Value Should Be" library="SeleniumLibrary">
+<arg>${link_Login}</arg>
+<arg>href</arg>
+<arg>@{logo_url}</arg>
+<doc>Verifies element identified by ``locator`` contains expected attribute value.</doc>
+<msg timestamp="20231206 09:56:41.295" level="INFO">Element 'xpath://div[@id='logo']//h1//a' attribute 'href' contains value 'http://opencart.abstracta.us/index.php?route=common/home'.</msg>
+<status status="PASS" starttime="20231206 09:56:41.285" endtime="20231206 09:56:41.295"/>
+</kw>
+<status status="PASS" starttime="20231206 09:56:41.273" endtime="20231206 09:56:41.296"/>
+</kw>
+<kw name="Check search" library="TC03_Header">
+<kw name="Verify search with value null" library="validation_Search">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${btn_search}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20231206 09:56:41.296" level="INFO">Clicking button 'xpath://div[@id='search']//button'.</msg>
+<status status="PASS" starttime="20231206 09:56:41.296" endtime="20231206 09:56:41.625"/>
+</kw>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<arg>${txt_search}</arg>
+<arg>Search</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20231206 09:56:41.640" level="INFO">Element 'xpath://div[@id='product-search']//h1' contains text 'Search'.</msg>
+<status status="PASS" starttime="20231206 09:56:41.625" endtime="20231206 09:56:41.640"/>
+</kw>
+<kw name="Search condition" library="validation_Search">
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${count_ItemSearch}</var>
+<arg>${count_proSearch}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20231206 09:56:41.648" level="INFO">${count_ItemSearch} = 0</msg>
+<status status="PASS" starttime="20231206 09:56:41.641" endtime="20231206 09:56:41.648"/>
+</kw>
+<if>
+<branch type="IF" condition="${count_ItemSearch} &gt; 0">
+<kw name="Log" library="BuiltIn">
+<arg>Search have ${count_ItemSearch} products</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20231206 09:56:41.648" endtime="20231206 09:56:41.648"/>
+</kw>
+<status status="NOT RUN" starttime="20231206 09:56:41.648" endtime="20231206 09:56:41.648"/>
+</branch>
+<branch type="ELSE">
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<arg>${empty_Search}</arg>
+<arg>Your shopping cart is empty!</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20231206 09:56:41.659" level="INFO">Element 'xpath://div[@id='product-search']//p[2]' contains text 'Your shopping cart is empty!'.</msg>
+<status status="PASS" starttime="20231206 09:56:41.649" endtime="20231206 09:56:41.659"/>
+</kw>
+<status status="PASS" starttime="20231206 09:56:41.648" endtime="20231206 09:56:41.659"/>
+</branch>
+<status status="PASS" starttime="20231206 09:56:41.648" endtime="20231206 09:56:41.659"/>
+</if>
+<status status="PASS" starttime="20231206 09:56:41.640" endtime="20231206 09:56:41.660"/>
+</kw>
+<status status="PASS" starttime="20231206 09:56:41.296" endtime="20231206 09:56:41.660"/>
+</kw>
+<kw name="Verify search with value invalid" library="validation_Search">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${input_search}</arg>
+<arg>${value_invalid_Search}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231206 09:56:41.660" level="INFO">Typing text 'search-invalid' into text field 'xpath://div[@id='search']//input[@name='search']'.</msg>
+<status status="PASS" starttime="20231206 09:56:41.660" endtime="20231206 09:56:41.759"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${btn_search}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20231206 09:56:41.760" level="INFO">Clicking button 'xpath://div[@id='search']//button'.</msg>
+<status status="PASS" starttime="20231206 09:56:41.759" endtime="20231206 09:56:42.111"/>
+</kw>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<arg>${txt_search}</arg>
+<arg>Search - ${value_invalid_Search}</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20231206 09:56:42.124" level="INFO">Element 'xpath://div[@id='product-search']//h1' contains text 'Search - search-invalid'.</msg>
+<status status="PASS" starttime="20231206 09:56:42.111" endtime="20231206 09:56:42.124"/>
+</kw>
+<kw name="Search condition" library="validation_Search">
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${count_ItemSearch}</var>
+<arg>${count_proSearch}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20231206 09:56:42.129" level="INFO">${count_ItemSearch} = 0</msg>
+<status status="PASS" starttime="20231206 09:56:42.125" endtime="20231206 09:56:42.129"/>
+</kw>
+<if>
+<branch type="IF" condition="${count_ItemSearch} &gt; 0">
+<kw name="Log" library="BuiltIn">
+<arg>Search have ${count_ItemSearch} products</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20231206 09:56:42.130" endtime="20231206 09:56:42.130"/>
+</kw>
+<status status="NOT RUN" starttime="20231206 09:56:42.130" endtime="20231206 09:56:42.130"/>
+</branch>
+<branch type="ELSE">
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<arg>${empty_Search}</arg>
+<arg>Your shopping cart is empty!</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20231206 09:56:42.139" level="INFO">Element 'xpath://div[@id='product-search']//p[2]' contains text 'Your shopping cart is empty!'.</msg>
+<status status="PASS" starttime="20231206 09:56:42.130" endtime="20231206 09:56:42.139"/>
+</kw>
+<status status="PASS" starttime="20231206 09:56:42.130" endtime="20231206 09:56:42.140"/>
+</branch>
+<status status="PASS" starttime="20231206 09:56:42.130" endtime="20231206 09:56:42.140"/>
+</if>
+<status status="PASS" starttime="20231206 09:56:42.125" endtime="20231206 09:56:42.140"/>
+</kw>
+<status status="PASS" starttime="20231206 09:56:41.660" endtime="20231206 09:56:42.140"/>
+</kw>
+<kw name="Verify search with value valid" library="validation_Search">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${input_search}</arg>
+<arg>${value_valid_Search}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231206 09:56:42.140" level="INFO">Typing text 'Macbook' into text field 'xpath://div[@id='search']//input[@name='search']'.</msg>
+<status status="PASS" starttime="20231206 09:56:42.140" endtime="20231206 09:56:42.175"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${btn_search}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20231206 09:56:42.175" level="INFO">Clicking button 'xpath://div[@id='search']//button'.</msg>
+<status status="PASS" starttime="20231206 09:56:42.175" endtime="20231206 09:56:44.549"/>
+</kw>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<arg>${txt_search}</arg>
+<arg>Search - ${value_valid_Search}</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20231206 09:56:44.573" level="INFO">Element 'xpath://div[@id='product-search']//h1' contains text 'Search - Macbook'.</msg>
+<status status="PASS" starttime="20231206 09:56:44.549" endtime="20231206 09:56:44.573"/>
+</kw>
+<kw name="Search condition" library="validation_Search">
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${count_ItemSearch}</var>
+<arg>${count_proSearch}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20231206 09:56:44.583" level="INFO">${count_ItemSearch} = 3</msg>
+<status status="PASS" starttime="20231206 09:56:44.574" endtime="20231206 09:56:44.583"/>
+</kw>
+<if>
+<branch type="IF" condition="${count_ItemSearch} &gt; 0">
+<kw name="Log" library="BuiltIn">
+<arg>Search have ${count_ItemSearch} products</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20231206 09:56:44.583" level="INFO">Search have 3 products</msg>
+<status status="PASS" starttime="20231206 09:56:44.583" endtime="20231206 09:56:44.583"/>
+</kw>
+<status status="PASS" starttime="20231206 09:56:44.583" endtime="20231206 09:56:44.583"/>
+</branch>
+<branch type="ELSE">
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<arg>${empty_Search}</arg>
+<arg>Your shopping cart is empty!</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="NOT RUN" starttime="20231206 09:56:44.584" endtime="20231206 09:56:44.584"/>
+</kw>
+<status status="NOT RUN" starttime="20231206 09:56:44.583" endtime="20231206 09:56:44.584"/>
+</branch>
+<status status="PASS" starttime="20231206 09:56:44.583" endtime="20231206 09:56:44.584"/>
+</if>
+<status status="PASS" starttime="20231206 09:56:44.574" endtime="20231206 09:56:44.584"/>
+</kw>
+<status status="PASS" starttime="20231206 09:56:42.140" endtime="20231206 09:56:44.584"/>
+</kw>
+<kw name="Verify search with value emoji" library="validation_Search">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${input_search}</arg>
+<arg>${value_emoji_Search}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231206 09:56:44.585" level="INFO">Typing text '^^' into text field 'xpath://div[@id='search']//input[@name='search']'.</msg>
+<status status="PASS" starttime="20231206 09:56:44.584" endtime="20231206 09:56:44.630"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${btn_search}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20231206 09:56:44.630" level="INFO">Clicking button 'xpath://div[@id='search']//button'.</msg>
+<status status="PASS" starttime="20231206 09:56:44.630" endtime="20231206 09:56:44.978"/>
+</kw>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<arg>${txt_search}</arg>
+<arg>Search - ${value_emoji_Search}</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20231206 09:56:44.987" level="INFO">Element 'xpath://div[@id='product-search']//h1' contains text 'Search - ^^'.</msg>
+<status status="PASS" starttime="20231206 09:56:44.979" endtime="20231206 09:56:44.987"/>
+</kw>
+<kw name="Search condition" library="validation_Search">
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${count_ItemSearch}</var>
+<arg>${count_proSearch}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20231206 09:56:44.992" level="INFO">${count_ItemSearch} = 0</msg>
+<status status="PASS" starttime="20231206 09:56:44.988" endtime="20231206 09:56:44.992"/>
+</kw>
+<if>
+<branch type="IF" condition="${count_ItemSearch} &gt; 0">
+<kw name="Log" library="BuiltIn">
+<arg>Search have ${count_ItemSearch} products</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20231206 09:56:44.992" endtime="20231206 09:56:44.992"/>
+</kw>
+<status status="NOT RUN" starttime="20231206 09:56:44.992" endtime="20231206 09:56:44.992"/>
+</branch>
+<branch type="ELSE">
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<arg>${empty_Search}</arg>
+<arg>Your shopping cart is empty!</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20231206 09:56:45.000" level="INFO">Element 'xpath://div[@id='product-search']//p[2]' contains text 'Your shopping cart is empty!'.</msg>
+<status status="PASS" starttime="20231206 09:56:44.992" endtime="20231206 09:56:45.000"/>
+</kw>
+<status status="PASS" starttime="20231206 09:56:44.992" endtime="20231206 09:56:45.000"/>
+</branch>
+<status status="PASS" starttime="20231206 09:56:44.992" endtime="20231206 09:56:45.001"/>
+</if>
+<status status="PASS" starttime="20231206 09:56:44.987" endtime="20231206 09:56:45.001"/>
+</kw>
+<status status="PASS" starttime="20231206 09:56:44.584" endtime="20231206 09:56:45.001"/>
+</kw>
+<status status="PASS" starttime="20231206 09:56:41.296" endtime="20231206 09:56:45.001"/>
+</kw>
+<kw name="Check button cart default" library="TC03_Header">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${btn_Cart}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20231206 09:56:45.001" level="INFO">Clicking button 'xpath://div[@id='cart']//button'.</msg>
+<status status="PASS" starttime="20231206 09:56:45.001" endtime="20231206 09:56:45.027"/>
+</kw>
+<kw name="Get Element Attribute" library="SeleniumLibrary">
+<var>${display_BtnCart}</var>
+<arg>${btn_Cart}</arg>
+<arg>aria-expanded</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20231206 09:56:45.035" level="INFO">${display_BtnCart} = true</msg>
+<status status="PASS" starttime="20231206 09:56:45.027" endtime="20231206 09:56:45.035"/>
+</kw>
+<if>
+<branch type="IF" condition="'${display_BtnCart} == true'">
+<kw name="Element Should Be Enabled" library="SeleniumLibrary">
+<arg>//div[@id='cart']//p</arg>
+<doc>Verifies that element identified by ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20231206 09:56:45.036" endtime="20231206 09:56:45.047"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>dropdown btn Cart enable</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20231206 09:56:45.047" level="INFO">dropdown btn Cart enable</msg>
+<status status="PASS" starttime="20231206 09:56:45.047" endtime="20231206 09:56:45.047"/>
+</kw>
+<status status="PASS" starttime="20231206 09:56:45.036" endtime="20231206 09:56:45.047"/>
+</branch>
+<status status="PASS" starttime="20231206 09:56:45.036" endtime="20231206 09:56:45.047"/>
+</if>
+<status status="PASS" starttime="20231206 09:56:45.001" endtime="20231206 09:56:45.047"/>
+</kw>
+<status status="PASS" starttime="20231206 09:56:41.273" endtime="20231206 09:56:45.048"/>
+</kw>
+<kw name="Finish TestCase" library="CommonFunctionality" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20231206 09:56:45.048" endtime="20231206 09:56:45.126"/>
+</kw>
+<status status="PASS" starttime="20231206 09:56:45.048" endtime="20231206 09:56:45.126"/>
+</kw>
+<status status="PASS" starttime="20231206 09:56:25.365" endtime="20231206 09:56:45.126"/>
+</test>
+<status status="PASS" starttime="20231206 09:56:25.292" endtime="20231206 09:56:45.126"/>
+</suite>
+<status status="PASS" starttime="20231206 09:56:25.286" endtime="20231206 09:56:45.127"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="TestSuites">TestSuites</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1" name="TS02 Header TopMen">TestSuites.TS02 Header TopMen</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
