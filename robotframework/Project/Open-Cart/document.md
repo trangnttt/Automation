@@ -30,3 +30,7 @@ Test case Header
             - Check click button             
 
 
+Test Suite
+    TS_Login    - TC Login
+    TS_Header   - TC Top Menu
+                - TC Header     
