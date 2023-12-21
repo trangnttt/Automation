@@ -40,3 +40,5 @@ print("copy:",list)
 # clear: xóa bỏ hết tất cả các phần tử trong list.
 list.clear()
 print("clear:",list)
+
+# Xem thêm: https://www.w3schools.com/python/python_lists_methods.asp

@@ -26,3 +26,5 @@ print("replace():",name.replace(" ", "-"))
 print("find():",name.find("Admin"))
 # index
 print("index():",name.index("I"))
+
+# Xem thêm: https://www.w3schools.com/python/python_ref_string.asp
